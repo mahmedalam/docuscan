@@ -2,7 +2,8 @@ import json
 
 from mistralai import Mistral
 
-from ..config import load_config, load_env
+from .config import settings
+from .prompt import OCR_PROMPT
 
 
 def extract_ocr_data_from_id_card(base64_image: str) -> dict | None:
@@ -15,32 +16,14 @@ def extract_ocr_data_from_id_card(base64_image: str) -> dict | None:
     Returns:
         dict | None: Extracted OCR data or None if an error occurred.
     """
-    env = load_env()
-    config = load_config()
-    client = Mistral(api_key=env.MISTRAL_API_KEY)
+    client = Mistral(api_key=settings.MISTRAL_API_KEY)
 
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": config.ocr_prompt,
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": base64_image},
-                },
-            ],
-        }
-    ]
+    messages = [{"role": "user", "content": [{"type": "text", "text": OCR_PROMPT, },
+                                             {"type": "image_url", "image_url": {"url": base64_image}, }, ], }]
 
     try:
-        response = client.chat.complete(
-            model=config.ocr_model,
-            messages=messages,
-            response_format={"type": "json_object"},
-        )
+        response = client.chat.complete(model=settings.MISTRAL_MODEL, messages=messages,
+                                        response_format={"type": "json_object"}, )
         json_content = response.choices[0].message.content
 
         try:
