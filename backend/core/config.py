@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     MISTRAL_MODEL: str
     MISTRAL_API_KEY: str
     DATABASE_URL: str
-    UPLOADTHING_TOKEN: str
+    UPLOADTHING_APP_ID: str
+    UPLOADTHING_SECRET: str
     CLERK_SECRET_KEY: str
     CLERK_JWT_KEY: str
 
