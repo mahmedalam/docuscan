@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Zoren Scan",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

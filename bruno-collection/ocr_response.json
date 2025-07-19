@@ -1,0 +1,20 @@
+{
+  "image_processing_time": "0.01",
+  "ocr_time": "6.06",
+  "data": {
+    "name": "SAMPLE WENDY, S",
+    "gender": "f",
+    "country": "USA",
+    "national_identity_number": "1624 012319 2155",
+    "date_of_birth": "16/03/1988",
+    "date_of_expiry": "02/01/2021",
+    "extras": {
+      "eye_color": "BROWN",
+      "height": "5'-09\"",
+      "address": "1628 CABRINI BOULEVARD",
+      "city": "NEW YORK",
+      "postal_code": "10007",
+      "organ_donor": true
+    }
+  }
+}

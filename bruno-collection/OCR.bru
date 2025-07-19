@@ -1,0 +1,15 @@
+meta {
+  name: OCR
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{localhost-api-v1}}/ocr/
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(C:\Users\mahme\Documents\zorenscan\test_data\card-1-converted.jpg) @contentType(image/jpeg)
+}
